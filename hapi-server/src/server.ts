@@ -4,6 +4,7 @@ import { registerJwtPlugin } from './plugins/jwt.plugin.js';
 import { registerSwaggerPlugin } from './plugins/swagger.plugin.js';
 import { registerAuthRoutes } from './modules/auth/auth.route.js';
 import { registerUserRoutes } from './modules/user/user.route.js';
+import { registerProductRoutes } from './modules/product/product.route.js';
 
 export async function createServer(): Promise<Hapi.Server> {
   const server = Hapi.server({
@@ -26,6 +27,7 @@ export async function createServer(): Promise<Hapi.Server> {
   // Routes
   registerAuthRoutes(server);
   registerUserRoutes(server);
+  registerProductRoutes(server);
 
   // Health check (no auth)
   server.route({
